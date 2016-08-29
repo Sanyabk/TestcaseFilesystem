@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="FileBrowser">
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+
+	<link href="~/Content/styles.css" rel="stylesheet" />
+
+	<!--AngularJS ver. 1.5.8-->
+	<script src="../../Scripts/angular.js"></script>
+	<script src="../../Scripts/script.js"></script>
+</head>
+<body>
+	<section ng-controller="FileBrowserController">
+		<table class="files-counter-result">
+			<thead>
+				<tr>
+					<th>Less than 10MB</th>
+					<th>From 10MB to 50MB</th>
+					<th>Greater than 100MB</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{filesCounter.Small}}</td>
+					<td>{{filesCounter.Medium}}</td>
+					<td>{{filesCounter.Large}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+
+		<div class="current-directory">
+			<span class="info">Current path: </span>
+			{{currentDirectory}}
+		</div>
+		<div class="error">{{error}}</div>
+		<br />
+
+		<section>
+			<div ng-repeat="directory in directories">
+				<div class="directory with-icon" ng-click="loadDirectoryContent(directory.FullPath)">
+					{{directory.Name}}
+				</div>
+			</div>
+
+			<div ng-repeat="file in files">
+				<div class="file with-icon" title="{{file.Length}}MB">
+					{{file.Name}}
+				</div>
+			</div>
+		</section>
+	</section>
+</body>
+</html>

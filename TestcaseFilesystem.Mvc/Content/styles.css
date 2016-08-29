@@ -1,0 +1,79 @@
+﻿/* main items */
+
+.directory {
+	font-size: 20px;
+	color: blue;
+	width: 500px;
+	word-break: break-all;
+
+}
+.directory:hover {
+	cursor: pointer;
+	background-color: gainsboro;
+}
+.file {
+	font-size: 20px;
+	color: cadetblue;
+	margin: 4px;
+	word-break: break-all;
+
+}
+
+/* main items icons */
+
+.file:before {
+	background: url('../Content/Icons/file.png');
+}
+.directory:before {
+	background: url('../Content/Icons/folder.png');
+}
+.with-icon:before {
+	content: '';
+	background-size: 20px 20px;
+	position: relative;
+	top: 2px;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+}
+		
+/* additional information */
+
+.error {
+	color: red;
+	text-decoration: underline;
+	font-size: 16px;
+	height: 20px;
+}
+.current-directory {
+	font-size: 20px;
+	color: black;
+	word-break: break-all;
+}
+.info {
+	font-weight: bold;
+	color: darkslategray;
+}
+
+/*table*/
+		
+table.files-counter-result, 
+table.files-counter-result > thead, 
+table.files-counter-result > tbody {
+	border: 2px solid green;
+	border-collapse: collapse;
+}
+table.files-counter-result th {
+	height: 50px;
+	padding: 10px;
+	color: white;
+	line-break: normal; 
+}
+table.files-counter-result td {
+	height:30px;
+	border: 2px solid green;
+	text-align: center;
+}
+table.files-counter-result > thead {
+	background-color: green;
+}

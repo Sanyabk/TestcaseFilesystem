@@ -1,0 +1,5 @@
+c:\users\alex\documents\visual studio 2015\Projects\TestcaseFilesystem\TestcaseFilesystem.Classes\bin\Debug\TestcaseFilesystem.Classes.dll
+c:\users\alex\documents\visual studio 2015\Projects\TestcaseFilesystem\TestcaseFilesystem.Classes\bin\Debug\TestcaseFilesystem.Classes.pdb
+c:\users\alex\documents\visual studio 2015\Projects\TestcaseFilesystem\TestcaseFilesystem.Classes\obj\Debug\TestcaseFilesystem.Classes.dll
+c:\users\alex\documents\visual studio 2015\Projects\TestcaseFilesystem\TestcaseFilesystem.Classes\obj\Debug\TestcaseFilesystem.Classes.pdb
+c:\users\alex\documents\visual studio 2015\Projects\TestcaseFilesystem\TestcaseFilesystem.Classes\obj\Debug\TestcaseFilesystem.Classes.csprojResolveAssemblyReference.cache
