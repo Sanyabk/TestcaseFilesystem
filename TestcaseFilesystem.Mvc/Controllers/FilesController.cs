@@ -14,9 +14,10 @@ namespace TestcaseFilesystem.Mvc.Controllers
     {
 		public IHttpActionResult Get(string path) 
 		{
+			//it's request to the ROOT, List of Logical Drives should be the only response,
+			//there are no files
 			if (String.IsNullOrWhiteSpace(path))
 			{
-				//it's request to the ROOT, List of Logical Drives should be the only response
 				return Ok();
 			}
 

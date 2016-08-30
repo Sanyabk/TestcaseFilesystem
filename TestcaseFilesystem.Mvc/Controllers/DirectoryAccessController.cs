@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TestcaseFilesystem.Classes;
 
 namespace TestcaseFilesystem.Mvc.Controllers
 {
@@ -12,16 +13,15 @@ namespace TestcaseFilesystem.Mvc.Controllers
     {
 		public IHttpActionResult Get(string path) 
 		{
-			// if it isn't call to ROOT directory, we should check posibilities of getting directories and folders.
-			// using of custom class DirectoryContentGetter instead of DirectoryInfo may be even better choice, 
-			// because in WebApi Controllers uses it.
+			// if it isn't call to ROOT directory, we should check posibilities 
+			// of getting directories and folders
 			if (!String.IsNullOrWhiteSpace(path)) 
 			{
 				try 
 				{
-					DirectoryInfo directory = new DirectoryInfo(path);
-					directory.GetDirectories();
-					directory.GetFiles();
+					DirectoryContentGetter getter = new DirectoryContentGetter(path);
+					getter.GetDirectories();
+					getter.GetFiles();
 				}
 				catch (Exception e)
 				{

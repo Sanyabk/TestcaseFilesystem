@@ -15,6 +15,8 @@ namespace TestcaseFilesystem.Mvc.Controllers
 		public IHttpActionResult Get(string path) 
 		{
 			List<DirectoryItem> directories = null;
+
+			//empty path - is call to ROOT directory
 			if (String.IsNullOrWhiteSpace(path))
 			{
 				directories = Directory.GetLogicalDrives()

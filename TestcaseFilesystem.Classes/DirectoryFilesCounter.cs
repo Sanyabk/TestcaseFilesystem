@@ -28,7 +28,18 @@ namespace TestcaseFilesystem.Classes
 			{
 				throw new DirectoryNotFoundException();
 			}
-			var counterResult = CountFilesInDirectory(directory);
+
+			//there may be exception, if junction point is passed
+			CounterResult counterResult;
+			try 
+			{
+				counterResult = CountFilesInDirectory(directory);
+			}
+			catch 
+			{
+				//let Controller handle it
+				throw;
+			}
 
 			var directories = directory.GetDirectories();
 			foreach (var dir in directories)
