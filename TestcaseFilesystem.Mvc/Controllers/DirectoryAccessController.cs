@@ -12,6 +12,9 @@ namespace TestcaseFilesystem.Mvc.Controllers
     {
 		public IHttpActionResult Get(string path) 
 		{
+			// if it isn't call to ROOT directory, we should check posibilities of getting directories and folders.
+			// using of custom class DirectoryContentGetter instead of DirectoryInfo may be even better choice, 
+			// because in WebApi Controllers uses it.
 			if (!String.IsNullOrWhiteSpace(path)) 
 			{
 				try 
