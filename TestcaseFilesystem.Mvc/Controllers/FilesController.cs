@@ -12,15 +12,16 @@ namespace TestcaseFilesystem.Mvc.Controllers
 {
     public class FilesController : ApiController
     {
+		//it's request to the ROOT, List of Logical Drives should be the only response,
+		//there are no files
+		public IHttpActionResult Get()
+		{
+			return Ok();
+		}
+
+		//request to other directories, with path
 		public IHttpActionResult Get(string path) 
 		{
-			//it's request to the ROOT, List of Logical Drives should be the only response,
-			//there are no files
-			if (String.IsNullOrWhiteSpace(path))
-			{
-				return Ok();
-			}
-
 			try 
 			{
 				DirectoryContentGetter getter = new DirectoryContentGetter(path);

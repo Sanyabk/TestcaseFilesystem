@@ -8,7 +8,7 @@
 		/* main handlers */
 
 		var onError = function (reason) {
-			//may be even alert - error field is static, and page may be long.
+			//at this place may be even alert - error field is static at top, and page may be long.
 			$scope.error = reason.data.Message;
 		}
 
@@ -24,29 +24,29 @@
 			$scope.directories = response.data;
 		}
 
-		/* loaders */
 
-		var loadDirectories = function (path) {
-			$http.get("../api/directories", { params: { path: path } })
+		/* function incapsulates loaders logic within itself */
+
+		//params = { params: { path: path } } in common case, calls Get(string path)
+		//and params = null in ROOT case, calls Get()
+		var loadDirectoriesFilesAndFilesCounter = function (path, params) {
+			$http.get("../api/directories", params)
 						 .then(onLoadDirectories, onError);
-		}
-		var loadFiles = function (path) {
-			$http.get("../api/files", { params: { path: path } })
-				 .then(onLoadFiles, onError);
-		}
-		var loadFilesCounter = function (path) {
-			$http.get("../api/filescounter", { params: { path: path } })
-				 .then(onLoadFilesCounter, onError);
+			$http.get("../api/files", params) 
+						 .then(onLoadFiles, onError);
+			$http.get("../api/filescounter", params)
+						 .then(onLoadFilesCounter, onError);
 		}
 
 		/* main loading function */
 
+		//if there is access to directory, invokes loader function 
+		//with proper parameter for ROOT or common directory
 		$scope.loadDirectoryContent = function (path) {
 			$http.get("../api/directoryaccess", { params: { path: path } })
 				 .then(function (response) {
-				 	loadDirectories(path); /*get directories from path*/
-				 	loadFiles(path); /*get files from path*/
-				 	loadFilesCounter(path); /*get FileCounter for path*/
+				 	var params = (path == "" || path == null) ? null : { params: { path: path } };
+				 	loadDirectoriesFilesAndFilesCounter(path, params);
 
 				 	$scope.currentDirectory = path;
 				 	$scope.error = "";

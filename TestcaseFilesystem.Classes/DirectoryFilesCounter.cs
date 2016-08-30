@@ -37,7 +37,7 @@ namespace TestcaseFilesystem.Classes
 			}
 			catch 
 			{
-				//let Controller handle it
+				//let Controller to handle it
 				throw;
 			}
 

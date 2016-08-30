@@ -28,6 +28,8 @@ namespace TestcaseFilesystem.Mvc.Controllers
 					return BadRequest(e.Message);
 				}
 			}
+
+			//returns Ok for ROOT and accessable directories
 			return Ok();
 		}
     }

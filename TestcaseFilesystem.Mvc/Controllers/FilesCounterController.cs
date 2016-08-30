@@ -10,14 +10,16 @@ namespace TestcaseFilesystem.Mvc.Controllers
 {
     public class FilesCounterController : ApiController
     {
+		//call to ROOT
+		//if it's root directory, we shouldn't count files
+		public IHttpActionResult Get()
+		{
+			return Ok();
+		}
+
+		//call to other directories
 		public IHttpActionResult Get(string path) 
 		{
-			//if it's root directory, we shouldn't count files
-			if (String.IsNullOrWhiteSpace(path)) 
-			{
-				return Ok();
-			}
-
 			try 
 			{
 				CounterResult result = DirectoryFilesCounter.CountFiles(path);
